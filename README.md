@@ -10,6 +10,10 @@ vcpkg\packages\opensubdiv_x64-windows-static\lib\osdCPU.lib
 dumpbin /DEPENDENTS vcpkg\packages\opensubdiv_x64-windows-static\lib\osdCPU.lib
 ```
 
+```
+dumpbin /DEPENDENTS build/Debug/testapp.exe
+```
+
 ## macOS
 
 ```
