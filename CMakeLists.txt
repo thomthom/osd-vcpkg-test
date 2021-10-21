@@ -28,7 +28,7 @@ message(DEBUG "VCPKG_TARGET_TRIPLET: ${VCPKG_TARGET_TRIPLET}")
 
 # Use Vcpkg for package management.
 # https://github.com/microsoft/vcpkg#vcpkg-as-a-submodule
-set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/third-party/vcpkg/scripts/buildsystems/vcpkg.cmake
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake
   CACHE STRING "Vcpkg toolchain file")
 
 project(OSDVCPKGTest
@@ -38,3 +38,6 @@ project(OSDVCPKGTest
 )
 
 find_package(opensubdiv REQUIRED)
+
+add_executable(testapp main.cpp)
+target_link_libraries(testapp PUBLIC osd_static_cpu)
