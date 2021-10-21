@@ -1,0 +1,19 @@
+{
+  "editor.tabSize": 2,
+  "editor.rulers": [
+      80
+  ],
+
+  // "cmake.loggingLevel": "debug", // CMakeTools
+  "cmake.configureOnOpen": false,
+  "cmake.configureArgs": [
+    // https://github.com/microsoft/vscode-cmake-tools/issues/892
+    "--log-level=DEBUG" // Enable to get more info from CMake.
+  ],
+
+  // "search.exclude": {
+  //   "third_party/**": true
+  // },
+
+  "files.trimTrailingWhitespace": true
+}
