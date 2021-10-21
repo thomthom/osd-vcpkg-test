@@ -48,7 +48,13 @@ project(OSDVCPKGTest
 # foreach (_variableName ${_variableNames})
 #     message(STATUS "${_variableName}=${${_variableName}}")
 # endforeach()
+
+find_package(fmt REQUIRED)
 find_package(opensubdiv REQUIRED)
 
 add_executable(testapp main.cpp)
-target_link_libraries(testapp PUBLIC osd_static_cpu)
+target_link_libraries(testapp
+  PUBLIC
+    fmt::fmt
+    osd_static_cpu
+)
