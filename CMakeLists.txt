@@ -14,6 +14,7 @@ cmake_minimum_required(VERSION 3.16)
 #
 # So set the triplet for Windows here instead. Default triplet for macOS is
 # already set to static libs.
+# https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md#changing-the-triplet-1
 message(DEBUG "VCPKG_LIBRARY_LINKAGE: ${VCPKG_LIBRARY_LINKAGE}")
 message(DEBUG "VCPKG_CRT_LINKAGE: ${VCPKG_CRT_LINKAGE}")
 message(DEBUG "VCPKG_TARGET_TRIPLET: ${VCPKG_TARGET_TRIPLET}")
@@ -37,6 +38,16 @@ project(OSDVCPKGTest
   LANGUAGES C CXX
 )
 
+# https://cmake.org/cmake/help/latest/variable/BUILD_SHARED_LIBS.html
+# https://cmake.org/cmake/help/latest/guide/tutorial/Selecting%20Static%20or%20Shared%20Libraries.html
+# option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
+# set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build dynamic libs by default")
+
+# get_cmake_property(_variableNames VARIABLES)
+# list (SORT _variableNames)
+# foreach (_variableName ${_variableNames})
+#     message(STATUS "${_variableName}=${${_variableName}}")
+# endforeach()
 find_package(opensubdiv REQUIRED)
 
 add_executable(testapp main.cpp)
