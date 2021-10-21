@@ -23,3 +23,7 @@ vcpkg/packages/opensubdiv_x64-osx/lib/libosdCPU.a
 ```
 otool -L vcpkg/packages/opensubdiv_x64-osx/lib/libosdCPU.a
 ```
+
+```
+otool -L build/testapp
+```
