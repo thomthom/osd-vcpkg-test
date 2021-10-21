@@ -3,6 +3,7 @@
   "name": "osd-vcpkg-test",
   "version": "0.1.0",
   "dependencies": [
+    "fmt",
     {
       "name": "opensubdiv",
       "default-features": false,
