@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.16)
 
 # # Set -MT(d) to be default for master project.
 # if(MASTER_PROJECT)
-#   # Use static CRT to avoid having to bundle additional DLLs with the
-#   # executable.
-#   set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  # Use static CRT to avoid having to bundle additional DLLs with the
+  # executable.
+  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 # endif()
 
 # I've not been able find a way to control the generation of static/dynamic
@@ -38,6 +38,15 @@ project(OSDVCPKGTest
   LANGUAGES C CXX
 )
 
+list(PREPEND CMAKE_MODULE_PATH
+  "${PROJECT_SOURCE_DIR}/cmake"
+  # "${PROJECT_SOURCE_DIR}/ThirdParty/slapi-lib/cmake"
+)
+
+# list(PREPEND CMAKE_PREFIX_PATH
+#   "${PROJECT_SOURCE_DIR}/ThirdParty/sketchup-ruby"
+# )
+
 # https://cmake.org/cmake/help/latest/variable/BUILD_SHARED_LIBS.html
 # https://cmake.org/cmake/help/latest/guide/tutorial/Selecting%20Static%20or%20Shared%20Libraries.html
 # option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
@@ -50,11 +59,13 @@ project(OSDVCPKGTest
 # endforeach()
 
 find_package(fmt REQUIRED)
-find_package(opensubdiv REQUIRED)
+# find_package(opensubdiv REQUIRED)
+find_package(OpenSubdiv REQUIRED)
 
 add_executable(testapp main.cpp)
 target_link_libraries(testapp
   PUBLIC
     fmt::fmt
-    osd_static_cpu
+    pixar::opensubdiv-cpu
+    # osd_static_cpu
 )
